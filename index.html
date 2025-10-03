@@ -2,50 +2,108 @@
 <html>
 <head>
   <title>QR Awareness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       text-align: center;
-      background-color: #fff;
+      /* Blue Gradient Background */
+      background: linear-gradient(to bottom right, #a7d9ff, #62a8d1); /* Light to slightly darker blue */
       font-family: Arial, sans-serif;
-      margin-top: 50px;
+      margin: 0; /* Remove default body margin */
+      padding-top: 20px; /* Add some top padding for overall content */
+      padding-bottom: 20px; /* Add some bottom padding */
+      min-height: 100vh; /* Ensure gradient covers full viewport height */
+      display: flex; /* For centering content vertically */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
+
+    .content-wrapper {
+      background-color: #fff; /* White background for the content area */
+      padding: 20px 15px; /* More padding for phone UI */
+      border-radius: 15px; /* Slightly rounded corners */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+      max-width: 90%; /* Max width for content wrapper */
+      width: 350px; /* A typical smartphone width reference */
+      margin: 20px auto; /* Center the wrapper and add vertical margin */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+
     img {
-      max-width: 90%; /* Ensures image is never wider than 90% of its container */
+      max-width: 100%; /* Image fills content wrapper, but not more */
       height: auto;    /* Maintains aspect ratio */
       display: block;  /* Removes extra space below image */
-      margin-left: auto; /* Centers the image */
-      margin-right: auto; /* Centers the image */
+      margin: 0 auto 15px auto; /* Center image with bottom margin */
+      loading="lazy"; /* Still good for lazy loading */
     }
     h2 {
       color: red;
-      margin-top: 20px;
+      margin-top: 15px; /* Slightly less margin for tighter UI */
+      margin-bottom: 15px;
+      font-size: 4.5vw; /* Responsive font size for heading */
+      line-height: 1.3; /* Better readability */
     }
+    p {
+        font-size: 3.5vw; /* Responsive font size for paragraphs */
+        margin-bottom: 15px;
+    }
     /* Style for social media links */
     .social-links {
       margin-top: 15px;
-      font-size: 14px;
+      font-size: 3.5vw; /* Responsive font size */
+      display: flex; /* Use flexbox for horizontal alignment */
+      flex-wrap: wrap; /* Allow links to wrap to next line if needed */
+      justify-content: center; /* Center links */
+      gap: 10px; /* Space between links */
     }
     .social-links a {
-      margin: 0 10px;
       text-decoration: none;
       color: #007bff; /* Link color */
       font-weight: bold;
+      padding: 5px 8px; /* Add padding for easier tapping on mobile */
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
     .social-links a:hover {
       text-decoration: underline;
+      background-color: rgba(0, 123, 255, 0.1); /* Light blue hover effect */
+    }
+
+    /* Small adjustments for very small screens if needed */
+    @media (max-width: 400px) {
+        .content-wrapper {
+            padding: 15px 10px;
+        }
+        h2 {
+            font-size: 5vw;
+        }
+        p {
+            font-size: 4vw;
+        }
+        .social-links {
+            font-size: 4vw;
+            flex-direction: column; /* Stack links vertically on very small screens */
+            gap: 5px;
+        }
+        .social-links a {
+            padding: 8px 10px; /* More padding for stacked links */
+        }
     }
   </style>
 </head>
 <body>
-  <img src="poster.jpg" alt="Scam Alert" loading="lazy">
-  <h2>⚠️ ALERT! This could be a scam. Don’t scan random QR codes.</h2>
-  <p>— BAS Awareness Campaign</p>
+  <div class="content-wrapper">
+    <img src="poster.jpg" alt="Scam Alert" loading="lazy">
+    <h2>⚠️ ALERT! This could be a scam. Don’t scan random QR codes.</h2>
+    <p>— BAS Awareness Campaign</p>
 
-  <p class="social-links">
-    Follow BAS Voice:
-    <a href="https://www.facebook.com/basvoiceofficial" target="_blank">Facebook</a> |
-    <a href="https://www.instagram.com/basvoiceofficial/reels/" target="_blank">Instagram</a> |
-    <a href="https://www.youtube.com/@basvoiceofficial" target="_blank">YouTube</a>
-  </p>
-  </body>
+    <p class="social-links">
+      Follow BAS Voice:
+      <a href="https://www.facebook.com/basvoiceofficial" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/basvoiceofficial/reels/" target="_blank">Instagram</a>
+      <a href="https://www.youtube.com/@basvoiceofficial" target="_blank">YouTube</a>
+    </p>
+  </div>
+</body>
 </html>
