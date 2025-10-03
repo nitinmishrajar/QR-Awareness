@@ -5,17 +5,15 @@
   <title>QR Awareness | BAS Alert</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <style>
-    /* 1. KEYFRAMES FOR BACKGROUND FLASH EFFECT */
-    @keyframes siren-flash-bg {
-        /* Start/End State: Light background, standard shadow */
+    /* 1. KEYFRAMES FOR TEXT FLASH EFFECT (Reverted to text flash) */
+    @keyframes siren-flash-text {
         0%, 100% { 
-            background-color: #ffcccc; /* Light red/pink */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            color: red; /* Original color */
+            text-shadow: none;
         }
-        /* Mid-point State: Bright flash, strong glow */
         50% { 
-            background-color: #ff3333; /* Bright red flash color */
-            box-shadow: 0 0 20px rgba(255, 51, 51, 0.8), 0 0 30px rgba(255, 255, 255, 0.5); 
+            color: #ffcc00; /* Bright yellow/orange flash color */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.5); 
         }
     }
 
@@ -35,16 +33,18 @@
     }
 
     .content-wrapper {
-      /* Animation applied here to make the whole box flash */
+      /* Reverted to a standard white/light background for better contrast with flashing text */
+      background-color: #fff; 
       padding: 15px 10px;
       border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       max-width: 95%;
       width: 320px;
       margin: 15px auto;
       box-sizing: border-box;
       
-      /* Apply the background flash animation */
-      animation: siren-flash-bg 0.5s infinite alternate; 
+      /* Removed the background flash animation */
+      animation: none; 
     }
 
     img {
@@ -54,30 +54,37 @@
       margin: 0 auto 10px auto;
     }
     
-    /* Text color is dark for high contrast against the red flashing background */
+    /* 2. APPLY FLASH ANIMATION BACK TO H2 */
     h2 {
-      color: #333; 
+      /* Base color for the animation */
+      color: red; 
       margin-top: 10px;
       margin-bottom: 10px;
       font-size: 5vw; 
       line-height: 1.3;
-      /* Removed the text animation */
+      
+      /* Apply the text flash animation */
+      animation: siren-flash-text 0.5s infinite alternate;
     }
+    
     p {
-      color: #333; /* Dark text for readability */
+      color: #333; 
       font-size: 3.5vw; 
       margin-bottom: 10px;
     }
     
-    /* Style for social media links */
+    /* 3. Social media link alignment FIX */
     .social-links {
       margin-top: 10px;
       font-size: 3.5vw; 
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap; /* FIX: Prevent wrapping to keep links inline */
       justify-content: center;
+      align-items: center; /* Vertically aligns the text 'Follow BAS Voice:' with the links */
       gap: 8px;
     }
+    
+    /* Style for the link elements themselves */
     .social-links a {
       text-decoration: none;
       color: #007bff;
@@ -86,7 +93,17 @@
       border-radius: 5px;
       transition: background-color 0.3s ease;
       white-space: nowrap; 
+      /* Ensures the links stay on the same line as the text "Follow BAS Voice:" */
+      display: inline-block; 
+      flex-shrink: 0; /* Prevents the links from shrinking if the container is too narrow */
     }
+    
+    /* Style for the 'Follow BAS Voice:' text, nested inside the p tag */
+    .social-links .text-label {
+        margin-right: 5px; /* Add slight space between the label and the first link */
+        color: #333;
+    }
+
     .social-links a:hover {
       text-decoration: underline;
       background-color: rgba(0, 123, 255, 0.1);
@@ -107,6 +124,13 @@
         .social-links a {
             padding: 6px 8px;
         }
+        /* Allow social links to wrap if necessary on the smallest phones, but keep them clustered */
+        .social-links {
+            flex-wrap: wrap; 
+            justify-content: center;
+            /* To make the label stay on its own line if it wraps */
+            text-align: center; 
+        }
     }
   </style>
 </head>
@@ -117,7 +141,7 @@
     <p>— BAS Awareness Campaign</p>
 
     <p class="social-links">
-      Follow BAS Voice:
+      <span class="text-label">Follow BAS Voice:</span>
       <a href="https://www.facebook.com/basvoiceofficial" target="_blank">Facebook</a>
       <a href="https://www.instagram.com/basvoiceofficial/reels/" target="_blank">Instagram</a>
       <a href="https://www.youtube.com/@basvoiceofficial" target="_blank">YouTube</a>
