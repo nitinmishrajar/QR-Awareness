@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Awareness</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+      margin-top: 50px;
+    }
+    img {
+      max-width: 90%;
+    }
+    h2 {
+      color: red;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <img src="poster.jpg" alt="Scam Alert">
+  <h2>⚠️ ALERT! This could be a scam. Don’t scan random QR codes.</h2>
+  <p>— BAS Awareness Campaign</p>
+</body>
+</html>
