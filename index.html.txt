@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Awareness</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+      margin-top: 50px;
+    }
+    img {
+      max-width: 90%;
+    }
+    h2 {
+      color: red;
+      margin-top: 20px;
+    }
+    /* Style for social media links */
+    .social-links {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #007bff; /* Link color */
+      font-weight: bold;
+    }
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <img src="poster.jpg" alt="Scam Alert">
+  <h2>⚠️ ALERT! This could be a scam. Don’t scan random QR codes.</h2>
+  <p>— BAS Awareness Campaign</p>
+
+  <p class="social-links">
+    Follow BAS Voice:
+    <a href="https://www.facebook.com/basvoiceofficial" target="_blank">Facebook</a> |
+    <a href="https://www.instagram.com/basvoiceofficial/reels/" target="_blank">Instagram</a> |
+    <a href="https://www.youtube.com/@basvoiceofficial" target="_blank">YouTube</a>
+  </p>
+  </body>
+</html>
