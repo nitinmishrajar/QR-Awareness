@@ -10,7 +10,11 @@
       margin-top: 50px;
     }
     img {
-      max-width: 90%;
+      max-width: 90%; /* Ensures image is never wider than 90% of its container */
+      height: auto;    /* Maintains aspect ratio */
+      display: block;  /* Removes extra space below image */
+      margin-left: auto; /* Centers the image */
+      margin-right: auto; /* Centers the image */
     }
     h2 {
       color: red;
@@ -33,7 +37,7 @@
   </style>
 </head>
 <body>
-  <img src="poster.jpg" alt="Scam Alert">
+  <img src="poster.jpg" alt="Scam Alert" loading="lazy">
   <h2>⚠️ ALERT! This could be a scam. Don’t scan random QR codes.</h2>
   <p>— BAS Awareness Campaign</p>
 
