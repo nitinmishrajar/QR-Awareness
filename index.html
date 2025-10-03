@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8"> <title>QR Awareness | BAS Alert</title>
+  <meta charset="UTF-8">
+  <title>QR Awareness | BAS Alert</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <style>
-    /* 1. KEYFRAMES FOR FLASH EFFECT (Unchanged) */
-    @keyframes siren-flash {
+    /* 1. KEYFRAMES FOR BACKGROUND FLASH EFFECT */
+    @keyframes siren-flash-bg {
+        /* Start/End State: Light background, standard shadow */
         0%, 100% { 
-            color: red; /* Original color */
-            text-shadow: none;
+            background-color: #ffcccc; /* Light red/pink */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+        /* Mid-point State: Bright flash, strong glow */
         50% { 
-            color: #ffcc00; /* Bright yellow/orange flash color */
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.5); 
+            background-color: #ff3333; /* Bright red flash color */
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.8), 0 0 30px rgba(255, 255, 255, 0.5); 
         }
     }
 
@@ -22,25 +25,26 @@
       background: linear-gradient(to bottom right, #a7d9ff, #62a8d1);
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 15px 0; /* Combined padding-top/bottom */
+      padding: 15px 0;
       min-height: 100vh;
-      /* Optimized Flex for Centering and Structure */
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* Keep content at the top, adjust padding instead */
+      justify-content: flex-start;
       align-items: center;
-      box-sizing: border-box; /* Good practice */
+      box-sizing: border-box;
     }
 
     .content-wrapper {
-      background-color: #fff;
+      /* Animation applied here to make the whole box flash */
       padding: 15px 10px;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       max-width: 95%;
-      width: 320px; /* Slightly increased width for better content flow on small devices */
+      width: 320px;
       margin: 15px auto;
       box-sizing: border-box;
+      
+      /* Apply the background flash animation */
+      animation: siren-flash-bg 0.5s infinite alternate; 
     }
 
     img {
@@ -50,25 +54,25 @@
       margin: 0 auto 10px auto;
     }
     
-    /* 2. APPLY FLASH ANIMATION TO H2 */
+    /* Text color is dark for high contrast against the red flashing background */
     h2 {
-      color: red;
+      color: #333; 
       margin-top: 10px;
       margin-bottom: 10px;
-      font-size: 5vw; /* Slightly increased vw for better legibility on common mobile sizes */
+      font-size: 5vw; 
       line-height: 1.3;
-      /* Animation properties (Unchanged) */
-      animation: siren-flash 0.5s infinite alternate;
+      /* Removed the text animation */
     }
     p {
-      font-size: 3.5vw; /* Slightly increased vw for better legibility */
+      color: #333; /* Dark text for readability */
+      font-size: 3.5vw; 
       margin-bottom: 10px;
     }
     
     /* Style for social media links */
     .social-links {
       margin-top: 10px;
-      font-size: 3.5vw; /* Consistent with paragraph text */
+      font-size: 3.5vw; 
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -81,7 +85,6 @@
       padding: 4px 7px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
-      /* Ensure text doesn't wrap awkwardly in the link itself */
       white-space: nowrap; 
     }
     .social-links a:hover {
@@ -89,17 +92,17 @@
       background-color: rgba(0, 123, 255, 0.1);
     }
 
-    /* Adjustments for very small screens (Minor adjustments for consistency) */
+    /* Adjustments for very small screens */
     @media (max-width: 400px) {
         .content-wrapper {
             padding: 10px 8px;
             width: 280px;
         }
         h2 {
-            font-size: 5.5vw; /* Slightly larger on very small screens to maintain impact */
+            font-size: 5.5vw;
         }
         p, .social-links {
-            font-size: 4vw; /* Larger font size for better readability on tiny screens */
+            font-size: 4vw;
         }
         .social-links a {
             padding: 6px 8px;
